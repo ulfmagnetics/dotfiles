@@ -1,0 +1,8 @@
+[user]
+  name = John Berry
+  email = ulfmagnetics@gmail.com
+[alias]
+	co = checkout
+	st = status
+[color]
+	ui = auto
