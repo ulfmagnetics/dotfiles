@@ -1,5 +1,6 @@
 {
 	"auto_complete_commit_on_tab": true,
+	"color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme",
 	"draw_white_space": "none",
 	"enable_tab_scrolling": false,
 	"ensure_newline_at_eof_on_save": true,
@@ -25,7 +26,10 @@
 		"*.db",
 		"*.beam",
 		".DS_Store",
-		".tags"
+		".tags",
+		"*.mp3",
+		"*.mid",
+		"*.map"
 	],
 	"folder_exclude_patterns":
 	[
@@ -33,13 +37,18 @@
 		".git",
 		".hg",
 		"CVS",
-		".sass-cache"
+		".sass-cache",
+		"node_modules",
+		"tmp",
+		"bower_components"
 	],
+	"font_size": 12,
 	"highlight_line": false,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 	],
+	"reveal-on-activate": false,
 	"rulers":
 	[
 		80,
@@ -49,5 +58,6 @@
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
 	"word_separators": "./\\()\"'-:,.;<>~@#$%^&*|+=[]{}`~",
-	"word_wrap": false,
+	"word_wrap": false
 }
+
