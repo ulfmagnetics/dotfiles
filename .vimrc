@@ -5,5 +5,9 @@
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+set number
+
+" remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
 
 colorscheme desert
