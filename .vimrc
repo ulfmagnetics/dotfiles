@@ -16,9 +16,4 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" indent with 2 spaces
-set expandtab
-set shiftwidth=2
-set softtabstop=2"
-
 colorscheme desert
