@@ -24,6 +24,10 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
+" autocomplete parens and braces
+inoremap ( ()<Esc>i
+inoremap { {}<Esc>i
+
 " remap keys for easier navigation through splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
