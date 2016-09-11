@@ -33,6 +33,10 @@ set autoindent
 " set up CtrlP (fuzzy finder)
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+" set up EasyGrep
+let g:EasyGrepJumpToMatch = 0
+let g:EasyGrepFilesToExclude = "*.swc,*.swp,*.git,tags,*.log"
+
 " set up vim-rspec
 let g:rspec_command = "bundle exec rspec {spec}"
 let g:rspec_runner = "os_x_iterm2"
