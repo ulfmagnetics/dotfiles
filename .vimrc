@@ -1,17 +1,28 @@
-" JDB vim setup instructions:
-" 1. Install pathogen (See https://github.com/tpope/vim-pathogen)
-" 2. Clone https://github.com/flazz/vim-colorschemes to
-"    ~/.vim/bundle/colorschemes
-" 3. Clone https://github.com/ctrlpvim/ctrlp.vim.git to
-"    ~/.vim/bundle/ctrlp.vim
+" Begin Vundle-managed plugin setup
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-execute pathogen#infect()
+Plugin 'VundleVim/Vundle.vim' " required!
+Plugin 'mileszs/ack.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'craigemery/vim-autotag'
+Plugin 'dkprice/vim-easygrep'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'thoughtbot/vim-rspec'
+
+call vundle#end()
+filetype plugin indent on
+" End Vundle-managed plugin setup
 
 " set basic options
-set nocompatible
 set number
 syntax on
-filetype plugin indent on
 
 " Indent with two spaces
 set expandtab
@@ -24,9 +35,10 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" autocomplete parens and braces
+" autocomplete parens, curly braces, and square braces
 inoremap ( ()<Esc>i
 inoremap { {}<Esc>i
+inoremap [ []<Esc>i
 
 " remap keys for easier navigation through splits
 nnoremap <C-J> <C-W><C-J>
