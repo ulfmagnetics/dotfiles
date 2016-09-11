@@ -1,6 +1,7 @@
 " Begin Vundle-managed plugin setup
 set nocompatible
 filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -31,6 +32,14 @@ set autoindent
 
 " set up CtrlP (fuzzy finder)
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" set up vim-rspec
+let g:rspec_command = "bundle exec rspec {spec}"
+let g:rspec_runner = "os_x_iterm2"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
