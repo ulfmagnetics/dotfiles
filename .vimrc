@@ -16,6 +16,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-obsession'
 
 call vundle#end()
 filetype plugin indent on
@@ -24,6 +25,7 @@ filetype plugin indent on
 " set basic options
 set number
 syntax on
+colorscheme desert
 
 " Indent with two spaces
 set expandtab
@@ -59,4 +61,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-colorscheme desert
+" set up status line
+set statusline=%f
+set statusline+=\ %{fugitive#statusline()}
+set statusline+=\ %{ObsessionStatus()}
