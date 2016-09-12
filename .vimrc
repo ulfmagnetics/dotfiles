@@ -77,6 +77,6 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " set up status line
-set statusline=%f
+set statusline=%m\ %f
 set statusline+=\ %{fugitive#statusline()}
-set statusline+=\ %{ObsessionStatus()}
+set statusline+=%{ObsessionStatus()}
