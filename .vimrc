@@ -37,7 +37,21 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " set up EasyGrep
 let g:EasyGrepJumpToMatch = 0
-let g:EasyGrepFilesToExclude = "*.swc,*.swp,*.git,tags,*.log"
+let g:EasyGrepFilesToExclude = "*.swc,*.swp,*.git,tags,*.log,tmp/*"
+let g:EasyGrepRecursive = 1
+" use The Silver Searcher (ag) if available
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+elseif executable('ack')
+  set grepprg=ack\ -s\ --nogroup\ --nocolor\ --column\ --with-filename
+endif
 
 " set up vim-rspec
 let g:rspec_command = "bundle exec rspec {spec}"
