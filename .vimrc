@@ -37,6 +37,7 @@ set autoindent
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " set up EasyGrep
+let g:EasyGrepCommand = 1
 let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepFilesToExclude = "*.swc,*.swp,*.git,tags,*.log,tmp/*"
 let g:EasyGrepRecursive = 1
