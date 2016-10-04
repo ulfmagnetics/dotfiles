@@ -18,6 +18,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-surround'
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -32,6 +33,7 @@ colorscheme desert
 set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent
+set nofoldenable  " don't fold by default; use 'zi' to turn it on
 
 " set up CtrlP (fuzzy finder)
 set runtimepath^=~/.vim/bundle/ctrlp.vim
