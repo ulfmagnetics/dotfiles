@@ -26,6 +26,8 @@ filetype plugin indent on
 
 " set basic options
 set number
+set splitright
+set splitbelow
 syntax on
 colorscheme desert
 
@@ -64,6 +66,9 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" Javascript dev setup
+au BufNewFile,BufRead *.ejs set filetype=html
 
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
