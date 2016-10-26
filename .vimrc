@@ -19,6 +19,8 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-surround'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 filetype plugin indent on
@@ -68,6 +70,7 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 " Javascript dev setup
+let g:jsx_ext_required = 0
 au BufNewFile,BufRead *.ejs set filetype=html
 
 " remove trailing whitespace on save
