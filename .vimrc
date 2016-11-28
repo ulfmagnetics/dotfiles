@@ -21,6 +21,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 call vundle#end()
 filetype plugin indent on
@@ -68,6 +69,11 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" set up markdown preview
+let vim_markdown_preview_hotkey='<C-S-P>'
+let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_github=1
 
 " Javascript dev setup
 let g:jsx_ext_required = 0

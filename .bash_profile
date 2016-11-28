@@ -9,6 +9,10 @@ alias bx="bundle exec"
 alias frg="foreman run bundle exec guard"
 alias frc="foreman run bundle exec rails c"
 
+# rails
+# spring is hanging a ton - see https://github.com/rails/spring/issues/396
+export DISABLE_SPRING=1
+
 # postgres
 export PGHOST=localhost
 
@@ -38,3 +42,15 @@ fi
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/src
 source /usr/local/bin/virtualenvwrapper.sh
+
+## rust development
+# racer
+export PATH=$PATH:/Users/john/.cargo/bin
+export RUST_SRC_PATH=/Users/john/src/rust/rustc/src
+# rust-bindgen (see https://github.com/crabtw/rust-bindgen)
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/
+
+## javascript development
+export NVM_DIR="$HOME/.nvm"
+## NOTE: disabling this by default because it slows down shell startup
+#. "$(brew --prefix nvm)/nvm.sh"
