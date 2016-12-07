@@ -71,7 +71,7 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 " set up markdown preview
-let vim_markdown_preview_hotkey='<C-S-P>'
+let vim_markdown_preview_hotkey='<C-@>'
 let vim_markdown_preview_browser='Google Chrome'
 let vim_markdown_preview_github=1
 
