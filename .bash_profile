@@ -54,5 +54,5 @@ export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Applications/Xcode.app/Contents/Dev
 
 ## javascript development
 export NVM_DIR="$HOME/.nvm"
-## NOTE: disabling this by default because it slows down shell startup
-#. "$(brew --prefix nvm)/nvm.sh"
+. "$(brew --prefix nvm)/nvm.sh" --no-use
+export PATH="${PATH}:${NVM_DIR}/versions/node/${NODE_VERSION}/bin"
