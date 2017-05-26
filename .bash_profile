@@ -1,5 +1,6 @@
 # path customizations
 export PATH=$PATH:$HOME/bin
+export EDITOR=/usr/local/bin/vim
 
 # rbenv / ruby-build
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -12,6 +13,7 @@ alias frc="foreman run bundle exec rails c"
 # rails
 # spring is hanging a ton - see https://github.com/rails/spring/issues/396
 export DISABLE_SPRING=1
+alias cdm="cd src/MethodologyDev/docker-services/monolith/"
 
 # postgres
 export PGHOST=localhost
@@ -24,7 +26,7 @@ PS1="\[$GREEN\]\t\[$RED\] \[$BLUE\]\u\[$YELLOW\]\[$YELLOW\] \w\[\033[m\]\[$MAGEN
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # torch
-export PATH=/Users/john/torch/install/bin:$PATH
+export PATH=$PATH:/Users/john/torch/install/bin
 export LD_LIBRARY_PATH=/Users/john/torch/install/lib:$LD_LIBRARY_PATH
 export DYLD_LIBRARY_PATH=/Users/john/torch/install/lib:$DYLD_LIBRARY_PATH
 
@@ -53,6 +55,6 @@ export RUST_SRC_PATH=/Users/john/src/rust/rustc/src
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/
 
 ## javascript development
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh" --no-use
-export PATH="${PATH}:${NVM_DIR}/versions/node/${NODE_VERSION}/bin"
+export NODE_VERSION=6.9.1
+export NVM_DIR="/Users/john/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm]
