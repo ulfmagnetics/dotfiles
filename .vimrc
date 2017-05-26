@@ -22,6 +22,12 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'tomlion/vim-solidity'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-highlight'
 
 call vundle#end()
 filetype plugin indent on
@@ -31,6 +37,7 @@ filetype plugin indent on
 set number
 set splitright
 set splitbelow
+set laststatus=2 " always display status line
 syntax on
 colorscheme desert
 
@@ -78,6 +85,13 @@ let vim_markdown_preview_github=1
 " Javascript dev setup
 let g:jsx_ext_required = 0
 au BufNewFile,BufRead *.ejs set filetype=html
+
+" Clojure dev setup
+autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
+au VimEnter * RainbowParenthesesToggle
+au Syntax clojure RainbowParenthesesLoadRound
+au Syntax clojure RainbowParenthesesLoadSquare
+au Syntax clojure RainbowParenthesesLoadBraces
 
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
