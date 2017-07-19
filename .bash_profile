@@ -13,7 +13,7 @@ alias frc="foreman run bundle exec rails c"
 # rails
 # spring is hanging a ton - see https://github.com/rails/spring/issues/396
 export DISABLE_SPRING=1
-alias cdm="cd src/MethodologyDev/docker-services/monolith/"
+alias cdm="cd $HOME/src/MethodologyDev/docker-services/monolith/"
 
 # postgres
 export PGHOST=localhost
@@ -58,3 +58,6 @@ export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Applications/Xcode.app/Contents/Dev
 export NODE_VERSION=6.9.1
 export NVM_DIR="/Users/john/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm]
+
+# added by Miniconda2 4.3.21 installer
+export PATH="/Users/john/miniconda2/bin:$PATH"
