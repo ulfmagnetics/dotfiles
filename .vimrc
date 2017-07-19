@@ -28,6 +28,12 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-highlight'
+Plugin 'guns/vim-sexp'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'tmhedberg/matchit'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 filetype plugin indent on
@@ -38,6 +44,7 @@ set number
 set splitright
 set splitbelow
 set laststatus=2 " always display status line
+set nofoldenable " don't fold by default; use 'zi' to turn it on
 syntax on
 colorscheme desert
 
@@ -45,7 +52,9 @@ colorscheme desert
 set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent
-set nofoldenable  " don't fold by default; use 'zi' to turn it on
+
+" set up vim-textobj-rubyblock
+runtime macros/matchit.vim
 
 " set up CtrlP (fuzzy finder)
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -97,9 +106,9 @@ au Syntax clojure RainbowParenthesesLoadBraces
 autocmd BufWritePre * %s/\s\+$//e
 
 " autocomplete parens, curly braces, and square braces
-inoremap ( ()<Esc>i
-inoremap { {}<Esc>i
-inoremap [ []<Esc>i
+"inoremap ( ()<Esc>i
+"inoremap { {}<Esc>i
+"inoremap [ []<Esc>i
 
 " remap keys for easier navigation through splits
 nnoremap <C-J> <C-W><C-J>
@@ -111,3 +120,15 @@ nnoremap <C-H> <C-W><C-H>
 set statusline=%m\ %f
 set statusline+=\ %{fugitive#statusline()}
 set statusline+=%{ObsessionStatus()}
+
+" find files and populate the quickfix list
+" from http://vim.wikia.com/wiki/Searching_for_files
+fun! FindFiles(filename)
+  let error_file = tempname()
+  silent exe '!find . -name "'.a:filename.'" | xargs file | sed "s/:/:1:/" > '.error_file
+  set errorformat=%f:%l:%m
+  exe "cfile ". error_file
+  copen
+  call delete(error_file)
+endfun
+command! -nargs=1 FindFile call FindFiles(<q-args>)
