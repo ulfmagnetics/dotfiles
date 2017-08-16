@@ -46,7 +46,7 @@ set splitbelow
 set laststatus=2 " always display status line
 set nofoldenable " don't fold by default; use 'zi' to turn it on
 syntax on
-colorscheme desert
+colorscheme Monokai
 
 " Indent with two spaces
 set expandtab
@@ -56,8 +56,14 @@ set autoindent
 " set up vim-textobj-rubyblock
 runtime macros/matchit.vim
 
+" set up NERDTree (file system explorer)
+map <Leader>r :NERDTreeFind<cr>
+
 " set up CtrlP (fuzzy finder)
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+cnoremap %methodology <c-r>=expand('~/src/MethodologyDev/docker-services/monolith')<cr>
+"gc = go client
+map <Leader>gc :CtrlP %methodology/client/<cr>
 
 " set up EasyGrep
 let g:EasyGrepCommand = 1
