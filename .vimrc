@@ -20,8 +20,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'JamshedVesuna/vim-markdown-preview'
-Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'tomlion/vim-solidity'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-unimpaired'
@@ -34,6 +35,7 @@ Plugin 'tmhedberg/matchit'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 filetype plugin indent on
@@ -53,6 +55,10 @@ set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent
 
+" highline current line with \c
+:hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=DimGray guifg=NONE
+:nnoremap <Leader>c :set cursorline!<CR>
+
 " set up vim-textobj-rubyblock
 runtime macros/matchit.vim
 
@@ -62,8 +68,14 @@ map <Leader>r :NERDTreeFind<cr>
 " set up CtrlP (fuzzy finder)
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 cnoremap %methodology <c-r>=expand('~/src/MethodologyDev/docker-services/monolith')<cr>
-"gc = go client
+" \gc = 'go client'
 map <Leader>gc :CtrlP %methodology/client/<cr>
+
+" working with ctags:
+" quick search through tags
+nnoremap <Leader>. :CtrlPTag<cr>
+" toggle the tagbar
+nnoremap <silent> <Leader>b :TagbarToggle<cr>
 
 " set up EasyGrep
 let g:EasyGrepCommand = 1
