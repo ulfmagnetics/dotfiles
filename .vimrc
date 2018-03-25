@@ -36,6 +36,8 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-dadbod'
+Plugin 'elixir-editors/vim-elixir'
 
 call vundle#end()
 filetype plugin indent on
@@ -76,6 +78,8 @@ map <Leader>gc :CtrlP %methodology/client/<cr>
 nnoremap <Leader>. :CtrlPTag<cr>
 " toggle the tagbar
 nnoremap <silent> <Leader>b :TagbarToggle<cr>
+" open ctag in vertical split
+map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " set up EasyGrep
 let g:EasyGrepCommand = 1
