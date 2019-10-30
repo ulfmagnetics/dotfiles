@@ -13,10 +13,19 @@ alias frc="foreman run bundle exec rails c"
 # rails
 # spring is hanging a ton - see https://github.com/rails/spring/issues/396
 export DISABLE_SPRING=1
-alias cdm="cd $HOME/src/MethodologyDev/docker-services/monolith/"
+alias cdm="cd $HOME/src/MethodologyDev/Methodology"
+alias cdc="cd $HOME/src/MethodologyDev/methodology-client"
+
+# coursera
+alias cdp="cd $HOME/src/coursera/progfun2"
+
+# seedbox
+alias ssk="ssh -i ~/.ssh/kimsufi_rsa -p 22546 seeder@ns331450.ip-37-187-121.eu"
+alias ssdt="ssh -fNL 127.0.0.2:58846:localhost:58846 -i ~/.ssh/kimsufi_rsa -p 22546 seeder@ns331450.ip-37-187-121.eu"
 
 # postgres
 export PGHOST=localhost
+alias dbsizes="echo 'SELECT pg_database.datname as \"database_name\", pg_database_size(pg_database.datname)/1024/1024 AS size_in_mb FROM pg_database ORDER by size_in_mb DESC;' | psql"
 
 # Load in the git branch prompt script.
 source ~/.git-prompt.sh
@@ -41,6 +50,8 @@ if [ $ITERM_SESSION_ID ]; then
 fi
 
 ## python development (using virtualenv and virtualenvwrapper)
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export PATH=$PATH:`python3 -m site --user-base`/bin
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
   export WORKON_HOME=$HOME/.virtualenvs
   export PROJECT_HOME=$HOME/src
@@ -59,5 +70,5 @@ export NODE_VERSION=6.9.1
 export NVM_DIR="/Users/john/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm]
 
-# added by Miniconda2 4.3.21 installer
-export PATH="/Users/john/miniconda2/bin:$PATH"
+## go development
+export GOPATH="Users/john/src/go"

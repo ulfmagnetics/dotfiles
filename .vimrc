@@ -38,6 +38,8 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-dadbod'
 Plugin 'elixir-editors/vim-elixir'
+Plugin 'yssl/QFEnter'
+Plugin 'tpope/vim-rhubarb'
 
 call vundle#end()
 filetype plugin indent on
@@ -49,6 +51,8 @@ set splitright
 set splitbelow
 set laststatus=2 " always display status line
 set nofoldenable " don't fold by default; use 'zi' to turn it on
+set foldmethod=indent
+set autoread
 syntax on
 colorscheme Monokai
 
@@ -69,9 +73,8 @@ map <Leader>r :NERDTreeFind<cr>
 
 " set up CtrlP (fuzzy finder)
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-cnoremap %methodology <c-r>=expand('~/src/MethodologyDev/docker-services/monolith')<cr>
-" \gc = 'go client'
-map <Leader>gc :CtrlP %methodology/client/<cr>
+cnoremap %methapp <c-r>=expand('~/src/MethodologyDev/Methodology')<cr>
+cnoremap %methclient <c-r>=expand('~/src/MethodologyDev/methodology-client')<cr>
 
 " working with ctags:
 " quick search through tags
@@ -110,7 +113,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 " set up markdown preview
 let vim_markdown_preview_hotkey='<C-@>'
-let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_browser='Firefox'
 let vim_markdown_preview_github=1
 
 " Javascript dev setup
@@ -142,6 +145,15 @@ nnoremap <C-H> <C-W><C-H>
 set statusline=%m\ %f
 set statusline+=\ %{fugitive#statusline()}
 set statusline+=%{ObsessionStatus()}
+
+" set up fugitive (git wrapper)
+autocmd QuickFixCmdPost *grep* cwindow
+
+" set up QFEnter (quickfix window splits)
+let g:qfenter_keymap = {}
+let g:qfenter_keymap.vopen = ['<C-v>']
+let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']
+let g:qfenter_keymap.topen = ['<C-t>']
 
 " find files and populate the quickfix list
 " from http://vim.wikia.com/wiki/Searching_for_files
