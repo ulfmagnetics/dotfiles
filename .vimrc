@@ -40,6 +40,7 @@ Plugin 'tpope/vim-dadbod'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'yssl/QFEnter'
 Plugin 'tpope/vim-rhubarb'
+Plugin 'tpope/vim-rails'
 
 call vundle#end()
 filetype plugin indent on
