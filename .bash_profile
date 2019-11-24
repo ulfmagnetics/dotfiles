@@ -1,3 +1,6 @@
+# Silence zsh warning on Catalina
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # path customizations
 export PATH=$PATH:$HOME/bin
 export EDITOR=/usr/local/bin/vim
@@ -66,9 +69,10 @@ export RUST_SRC_PATH=/Users/john/src/rust/rustc/src
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/
 
 ## javascript development
-export NODE_VERSION=6.9.1
+export NODE_VERSION=8.11.1
 export NVM_DIR="/Users/john/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm]
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 ## go development
 export GOPATH="Users/john/src/go"
