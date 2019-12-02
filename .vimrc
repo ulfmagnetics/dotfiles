@@ -56,6 +56,7 @@ set foldmethod=indent
 set autoread
 syntax on
 colorscheme Monokai
+set guifont=Menlo\ Regular:h10
 
 " Indent with two spaces
 set expandtab
@@ -79,6 +80,7 @@ cnoremap %methclient <c-r>=expand('~/src/MethodologyDev/methodology-client')<cr>
 let g:ctrlp_regexp = 1
 
 " working with ctags:
+set tags^=./.git/tags
 " quick search through tags
 nnoremap <Leader>. :CtrlPTag<cr>
 " toggle the tagbar

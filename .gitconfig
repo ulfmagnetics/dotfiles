@@ -4,8 +4,11 @@
 [alias]
 	co = checkout
 	st = status
+	ctags = !.git/hooks/ctags
 [color]
 	ui = auto
 [core]
 	editor = /usr/bin/vim
 	excludesfile = /Users/john/.gitignore
+[init]
+	templatedir = ~/.git_template
