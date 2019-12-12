@@ -77,10 +77,11 @@ map <Leader>r :NERDTreeFind<cr>
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 cnoremap %methapp <c-r>=expand('~/src/MethodologyDev/Methodology')<cr>
 cnoremap %methclient <c-r>=expand('~/src/MethodologyDev/methodology-client')<cr>
+let g:ctrlp_max_files = 0
 let g:ctrlp_regexp = 1
 
 " working with ctags:
-set tags^=./.git/tags
+set tags^=~/src/MethodologyDev/Methodology/.git/tags
 " quick search through tags
 nnoremap <Leader>. :CtrlPTag<cr>
 " toggle the tagbar

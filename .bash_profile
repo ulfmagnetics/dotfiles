@@ -18,7 +18,7 @@ alias frc="foreman run bundle exec rails c"
 export DISABLE_SPRING=1
 alias cdm="cd $HOME/src/MethodologyDev/Methodology"
 alias cdc="cd $HOME/src/MethodologyDev/methodology-client"
-alias methvim="cdm && mvim -S ~/.vim/sessions/meth.vim ."
+methvim() {  cdm && mvim -S ~/.vim/sessions/"${1:-meth}".vim .; }
 
 # coursera
 alias cdp="cd $HOME/src/coursera/progfun2"
