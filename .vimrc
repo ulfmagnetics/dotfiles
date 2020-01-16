@@ -79,6 +79,7 @@ cnoremap %methapp <c-r>=expand('~/src/MethodologyDev/Methodology')<cr>
 cnoremap %methclient <c-r>=expand('~/src/MethodologyDev/methodology-client')<cr>
 let g:ctrlp_max_files = 0
 let g:ctrlp_regexp = 1
+let g:ctrlp_custom_ignore = 'node_modules'
 
 " working with ctags:
 set tags^=~/src/MethodologyDev/Methodology/.git/tags
@@ -89,11 +90,15 @@ nnoremap <silent> <Leader>b :TagbarToggle<cr>
 " open ctag in vertical split
 map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+" switch all windows/splits to cwd of current file
+nnoremap <leader>cd :cd %:p:h<CR>
+
 " set up EasyGrep
 let g:EasyGrepCommand = 1
 let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepFilesToExclude = "*.swc,*.swp,*.git,tags,*.log,tmp/*,node_modules/*"
 let g:EasyGrepRecursive = 1
+let g:EasyGrepRoot = "repository"
 " use The Silver Searcher (ag) if available
 if executable('ag')
   " Use ag over grep

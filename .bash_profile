@@ -30,6 +30,7 @@ alias ssdt="ssh -fNL 127.0.0.2:58846:localhost:58846 -i ~/.ssh/kimsufi_rsa -p 22
 # postgres
 export PGHOST=localhost
 alias dbsizes="echo 'SELECT pg_database.datname as \"database_name\", pg_database_size(pg_database.datname)/1024/1024 AS size_in_mb FROM pg_database ORDER by size_in_mb DESC;' | psql"
+alias dbnames="echo 'SELECT pg_database.datname as \"database_name\" FROM pg_database ORDER by database_name ASC;' | psql -t"
 
 # Load in the git branch prompt script.
 source ~/.git-prompt.sh
