@@ -77,9 +77,11 @@ map <Leader>r :NERDTreeFind<cr>
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 cnoremap %methapp <c-r>=expand('~/src/MethodologyDev/Methodology')<cr>
 cnoremap %methclient <c-r>=expand('~/src/MethodologyDev/methodology-client')<cr>
+let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files = 0
 let g:ctrlp_regexp = 1
 let g:ctrlp_custom_ignore = 'node_modules'
+map <Leader>p :CtrlPBuffer<CR>
 
 " working with ctags:
 set tags^=~/src/MethodologyDev/Methodology/.git/tags
