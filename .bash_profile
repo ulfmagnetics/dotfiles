@@ -32,6 +32,11 @@ export PGHOST=localhost
 alias dbsizes="echo 'SELECT pg_database.datname as \"database_name\", pg_database_size(pg_database.datname)/1024/1024 AS size_in_mb FROM pg_database ORDER by size_in_mb DESC;' | psql"
 alias dbnames="echo 'SELECT pg_database.datname as \"database_name\" FROM pg_database ORDER by database_name ASC;' | psql -t"
 
+# Trim the working directory
+# NOTE: The PROMPT_DIRTRIM variable only works in bash v4+...
+#       See https://gist.github.com/samnang/1759336 for tips on installing from homebrew
+export PROMPT_DIRTRIM=2
+
 # Load in the git branch prompt script.
 source ~/.git-prompt.sh
 PS1="\[$GREEN\]\t\[$RED\] \[$BLUE\]\u\[$YELLOW\]\[$YELLOW\] \w\[\033[m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\] \$ "
