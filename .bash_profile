@@ -7,6 +7,7 @@ export EDITOR=/usr/local/bin/vim
 
 # rbenv / ruby-build
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # bundler
 alias bx="bundle exec"
@@ -19,6 +20,7 @@ export DISABLE_SPRING=1
 alias cdm="cd $HOME/src/MethodologyDev/Methodology"
 alias cdc="cd $HOME/src/MethodologyDev/methodology-client"
 methvim() {  cdm && mvim -S ~/.vim/sessions/"${1:-meth}".vim .; }
+gemvim() { ( cdm && cd `bundle info $1 --path`; mvim .; ) }
 
 # coursera
 alias cdp="cd $HOME/src/coursera/progfun2"
@@ -59,13 +61,9 @@ if [ $ITERM_SESSION_ID ]; then
   export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
 fi
 
-## python development (using virtualenv and virtualenvwrapper)
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export PATH=$PATH:`python3 -m site --user-base`/bin
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-  export WORKON_HOME=$HOME/.virtualenvs
-  export PROJECT_HOME=$HOME/src
-  source /usr/local/bin/virtualenvwrapper.sh
+## python development (using pyenv and pipenv)
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
 fi
 
 ## rust development
@@ -83,3 +81,5 @@ export NVM_DIR="/Users/john/.nvm"
 
 ## go development
 export GOPATH="Users/john/src/go"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
