@@ -34,14 +34,8 @@ export PGHOST=localhost
 alias dbsizes="echo 'SELECT pg_database.datname as \"database_name\", pg_database_size(pg_database.datname)/1024/1024 AS size_in_mb FROM pg_database ORDER by size_in_mb DESC;' | psql"
 alias dbnames="echo 'SELECT pg_database.datname as \"database_name\" FROM pg_database ORDER by database_name ASC;' | psql -t"
 
-# Trim the working directory
-# NOTE: The PROMPT_DIRTRIM variable only works in bash v4+...
-#       See https://gist.github.com/samnang/1759336 for tips on installing from homebrew
-export PROMPT_DIRTRIM=2
-
-# Load in the git branch prompt script.
-source ~/.git-prompt.sh
-PS1="\[$GREEN\]\t\[$RED\] \[$BLUE\]\u\[$YELLOW\]\[$YELLOW\] \w\[\033[m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\] \$ "
+# set up prompt
+. ~/.bash_prompt
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -83,3 +77,13 @@ export NVM_DIR="/Users/john/.nvm"
 export GOPATH="Users/john/src/go"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+## java development
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+export PATH="$PATH:$HOME/src/apache-maven-3.6.0/bin"
+
+# AWS Glue development
+export SPARK_HOME="$HOME/src/spark-2.4.3-bin-spark-2.4.3-bin-hadoop2.8"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
