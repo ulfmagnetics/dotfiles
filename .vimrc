@@ -41,6 +41,7 @@ Plugin 'elixir-editors/vim-elixir'
 Plugin 'yssl/QFEnter'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-rails'
+Plugin 'Vimjas/vim-python-pep8-indent'
 
 call vundle#end()
 filetype plugin indent on
@@ -56,7 +57,7 @@ set foldmethod=indent
 set autoread
 syntax on
 colorscheme Monokai
-set guifont=Menlo\ Regular:h10
+set guifont=Menlo\ Regular:h12
 
 " Indent with two spaces
 set expandtab
@@ -166,6 +167,9 @@ let g:qfenter_keymap = {}
 let g:qfenter_keymap.vopen = ['<C-v>']
 let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']
 let g:qfenter_keymap.topen = ['<C-t>']
+
+" set up some useful macros
+let @f = 'i# frozen_string_literal: true'
 
 " find files and populate the quickfix list
 " from http://vim.wikia.com/wiki/Searching_for_files
