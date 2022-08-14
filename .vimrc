@@ -117,7 +117,7 @@ elseif executable('ack')
 endif
 
 " set up vim-rspec
-let g:rspec_command = "bundle exec rspec {spec}"
+let g:rspec_command = "bundle exec rspec --format documentation {spec}"
 let g:rspec_runner = "os_x_iterm2"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>

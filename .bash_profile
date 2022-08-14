@@ -19,6 +19,10 @@ alias frc="foreman run bundle exec rails c"
 export DISABLE_SPRING=1
 alias cdm="cd $HOME/src/MethodologyDev/Methodology"
 alias cdc="cd $HOME/src/MethodologyDev/methodology-client"
+dc()  { docker compose -f docker-compose.yml -f docker-compose-dev.yml $@; }
+dcu() { docker compose -f docker-compose.yml -f docker-compose-dev.yml up; }
+dcr() { dc run --rm --name oneoff-`date +%s` web $@; }
+dcx() { dcr bundle exec $@; }
 methvim() {  cdm && mvim -S ~/.vim/sessions/"${1:-meth}".vim .; }
 gemvim() { ( cdm && cd `bundle info $1 --path`; mvim .; ) }
 
@@ -87,3 +91,19 @@ export PATH="$PATH:$HOME/src/apache-maven-3.6.0/bin"
 export SPARK_HOME="$HOME/src/spark-2.4.3-bin-spark-2.4.3-bin-hadoop2.8"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/john/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/john/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/john/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/john/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
